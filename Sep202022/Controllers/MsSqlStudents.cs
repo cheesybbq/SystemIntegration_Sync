@@ -22,7 +22,7 @@ namespace Sep202022.Controllers
         }
 
         [HttpPut]
-        public Student Edit(string StudentID, Student student)
+        public Student Edit(int StudentID, Student student)
         {
             var repository = new MsSqlRepository();
             repository.UpdateStudent(StudentID, student);

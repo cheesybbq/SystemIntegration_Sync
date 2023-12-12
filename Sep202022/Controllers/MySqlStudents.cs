@@ -24,7 +24,7 @@ namespace Sep202022.Controllers
         [Route("{StudentID}")]
         public Student Get(int StudentID)
         {
-            var student = new MySqlRepository().GetStudent(id);
+            var student = new MySqlRepository().GetStudent(StudentID);
             return student;
         }
 

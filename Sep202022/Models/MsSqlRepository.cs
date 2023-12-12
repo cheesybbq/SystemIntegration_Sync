@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 namespace Sep202022.Models
 {
     public class MsSqlRepository
@@ -21,7 +22,7 @@ namespace Sep202022.Models
                 student.Birthday = reader.GetDateTime(4);
                 student.Age = reader.GetInt32(0);
                 student.StudentID = reader.GetInt32(0);
-                student.Add(student);
+                students.Add(student);
             }
             return students;
         }
@@ -31,8 +32,8 @@ namespace Sep202022.Models
             string connectionstring = @"Data Source=luweese\SQLExpress;Initial Catalog=ITS406;Persist Security Info=True;Integrated Security=true;Encrypt=false;";
             SqlConnection connection = new SqlConnection(connectionstring);
             connection.Open();
-            SqlCommand command = new MySqlCommand("insert into Student(StudentNumber,LastName,FirstName,Address, Birthday, Age) values ('" + student.StudentNumber
-                + "','" + student.LastName + "','" + student.FirstName + "','" + student.Address "','" + student.Birthday
+            SqlCommand command = new SqlCommand("insert into Student(StudentNumber,LastName,FirstName,Address, Birthday, Age) values ('" + student.StudentNumber
+                + "','" + student.LastName + "','" + student.FirstName + "','" + student.Address + "','" + student.Birthday
                 + "','" + student.Age + "')", connection);
             var reader = command.ExecuteScalar();
 

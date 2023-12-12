@@ -15,7 +15,7 @@ namespace Sep202022.Models
             {
                 Student student = new Student();
                 student.Address = reader.GetString("Address");
-                student.StudentNumber = reader.GetString("StudentNumber");
+                student.StudentNumber = reader.GetInt32("StudentNumber");
                 student.LastName = reader.GetString("LastName");
                 student.FirstName = reader.GetString("FirstName");
                 student.Birthday = reader.GetDateTime("Birthday");
@@ -36,7 +36,7 @@ namespace Sep202022.Models
             while (reader.Read())
             {
                 student.Address = reader.GetString("Address");
-                student.StudentNumber = reader.GetString("StudentNumber");
+                student.StudentNumber = reader.GetInt32("StudentNumber");
                 student.LastName = reader.GetString("LastName");
                 student.FirstName = reader.GetString("FirstName");
                 student.Birthday = reader.GetDateTime("Birthday");
@@ -58,7 +58,7 @@ namespace Sep202022.Models
             {
                 Student student = new Student();
                 student.Address = reader.GetString("Address");
-                student.StudentNumber = reader.GetString("StudentNumber");
+                student.StudentNumber = reader.GetInt32("StudentNumber");
                 student.LastName = reader.GetString("LastName");
                 student.FirstName = reader.GetString("FirstName");
                 student.Birthday = reader.GetDateTime("Birthday");
@@ -76,7 +76,7 @@ namespace Sep202022.Models
             MySqlConnection connection = new MySqlConnection(connectionstring);
             connection.Open();
             MySqlCommand command = new MySqlCommand("insert into Student(StudentNumber,LastName,FirstName,Address, Birthday, Age) values ('" +student.StudentNumber 
-                +"','" + student.LastName +"','" + student.FirstName +"','" + student.Address "','" + student.Birthday
+                +"','" + student.LastName +"','" + student.FirstName +"','" + student.Address + "','" + student.Birthday
                 + "','" + student.Age+ "')", connection);
             var reader = command.ExecuteScalar();            
             
